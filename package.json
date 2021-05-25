@@ -1,0 +1,20 @@
+{
+  "name": "@kylorhall/enforce-package-dependency-version",
+  "version": "1.0.0-unreleased.2",
+  "description": "A fake prerelease",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylorhall/enforce-package-dependency-version.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "author": "Kylor Hall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kylorhall/enforce-package-dependency-version/issues"
+  },
+  "homepage": "https://github.com/kylorhall/enforce-package-dependency-version#readme"
+}
