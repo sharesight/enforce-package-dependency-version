@@ -57,5 +57,6 @@ yarn jest:tdd
 
 ## Release
 
-1. Bump a new version.
-2. `yarn publish`
+1. Bump a new `package.json` version (just for the sake of it).
+2. Do not `yarn publish`…
+3. Build a New Release: [here](https://github.com/kylorhall/enforce-package-dependency-version/releases/new)
