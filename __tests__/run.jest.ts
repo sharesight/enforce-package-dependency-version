@@ -128,6 +128,29 @@ describe("run", () => {
     expect(setOutputSpy).toHaveBeenCalledWith("resolved_version", "4.2.4"); // what is in `yarn.lock`
   });
 
+  test.each([true, false])(
+    "passing scenario: a non-prerelease with version_prerelease=%p",
+    (prerelease) => {
+      overrideInputs({
+        package: "typescript",
+        range: "^4.2.0", // the value we're testing for…may not 100% match `package.json` or `yarn.lock`
+        version_prerelease: prerelease,
+      });
+
+      // NOTE: This runs on load, this is how you do that…
+      // jest.resetModules();
+      jest.isolateModules(() => {
+        require("../src/run");
+      });
+
+      expect(setFailedSpy).not.toHaveBeenCalled();
+
+      expect(setOutputSpy).toHaveBeenCalledTimes(2);
+      expect(setOutputSpy).toHaveBeenCalledWith("target_version", "^4.0.0"); // what is in `package.json`
+      expect(setOutputSpy).toHaveBeenCalledWith("resolved_version", "4.2.4"); // what is in `yarn.lock`
+    }
+  );
+
   test("passing scenario: yallist (in dependencies) with allow_multiple_versions=true", () => {
     overrideInputs({
       package: "yallist",

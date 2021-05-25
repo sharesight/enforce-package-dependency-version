@@ -64,14 +64,17 @@ describe("enforce", () => {
       }
     );
 
-    test("failing: when prerelease=true (not a prerelease)", () => {
-      expect(() =>
-        enforceVersion({ ...config, version_prerelease: true })
-      ).toThrowError("⚠️ Expected a prerelease on '7.3.5', got none.");
-    });
+    test.each([true, false])(
+      "passing: when version_prerelease=%p (not a prerelease)",
+      (prerelease) => {
+        expect(() =>
+          enforceVersion({ ...config, version_prerelease: prerelease })
+        ).not.toThrow();
+      }
+    );
 
     test.each(["one", "two"])(
-      "failing: when prerelease=%p (not a prerelease)",
+      "failing: when version_prerelease=%p (not a prerelease)",
       (prerelease) => {
         expect(() =>
           enforceVersion({ ...config, version_prerelease: prerelease })
