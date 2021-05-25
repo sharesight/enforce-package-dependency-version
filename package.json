@@ -1,6 +1,6 @@
 {
   "name": "enforce-package-dependency-version",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Allows us to enforce a specific package dependency version in a `package.json` file.",
   "main": "dist/index.js",
   "scripts": {
