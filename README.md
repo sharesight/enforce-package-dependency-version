@@ -33,15 +33,26 @@ jobs:
           echo resolved_version: ${{ steps.enforce.outputs.resolved_version }}
 ```
 
-# Valid Inputs
+# Inputs
 
 - **`package`** _[required]_
   - The name of the dependency to check.
 - **`directory`**
   - Directory where your `package.json` can be found.
-  - Defaults to to `env.GITHUB_WORKSPACE`.
+  - `default=env.GITHUB_WORKSPACE`
 - **`range`** _[required]_
   - A semver range, eg. '^1.0.0', '1.0.0', '>=1.x', etc..
+- **`version_prerelease`**
+  - An optional prerelease target.
+  - `default=false`
+  - `false` requires there is no prerelease.
+  - `true` allows a prerelease—but it is not required! `1.2.3-prerelease` and `1.2.3` are both valid
+  - `'prerelease'` means it must match that prerelease.
+  - `'prerelease.#'` means it must match that prerelease and identifier.
+- **`allow_multiple_versions`**
+  - Whether or not we allow multiple versions to be resolved, eg. you may have Typescript at `^4.2.0` in your codebase, but another package points to `3.x`.
+  - `false` means this should only ever resolve to a single version (and that should match our range)
+  - `true` allows all versions… NOTE: we only look at the first resolved version, assuming this is your version.
 
 ---
 

@@ -26,11 +26,7 @@ export function enforceVersion(config: Config = getConfig()): void {
   }
 
   if (config.version_prerelease === true) {
-    if (parsedVersion.prerelease && !parsedVersion.prerelease.length) {
-      throw new Error(
-        `⚠️ Expected a prerelease on '${parsedVersion.version}', got none.`
-      );
-    }
+    // NOTE: In this case, we do not care!
   } else if (config.version_prerelease === false) {
     if (parsedVersion.prerelease && parsedVersion.prerelease.length) {
       throw new Error(
