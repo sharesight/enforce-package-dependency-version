@@ -1,0 +1,61 @@
+name: Package Enforcement of our own package.
+
+on: push
+
+jobs:
+  actions_core:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: "Enforce Version"
+        id: enforce
+        uses: kylorhall/enforce-package-dependency-version@mvp
+        with:
+          package: "@actions/core"
+          range: "^1.2.0"
+
+      - name: Debug
+        if: always()
+        run: |
+          echo target_version: ${{ steps.enforce.outputs.target_version }}
+          echo resolved_version: ${{ steps.enforce.outputs.resolved_version }}
+
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: "Enforce Version"
+        id: enforce
+        uses: kylorhall/enforce-package-dependency-version@mvp
+        with:
+          package: "typescript"
+          range: "^4.0.0"
+
+      - name: Debug
+        if: always()
+        run: |
+          echo target_version: ${{ steps.enforce.outputs.target_version }}
+          echo resolved_version: ${{ steps.enforce.outputs.resolved_version }}
+
+  types_jest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: "Enforce Version"
+        id: enforce
+        uses: kylorhall/enforce-package-dependency-version@mvp
+        with:
+          package: "@types/jest"
+          range: ">=26"
+
+      - name: Debug
+        if: always()
+        run: |
+          echo target_version: ${{ steps.enforce.outputs.target_version }}
+          echo resolved_version: ${{ steps.enforce.outputs.resolved_version }}

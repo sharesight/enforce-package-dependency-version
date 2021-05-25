@@ -1,0 +1,37 @@
+name: Enforce Package Dependency Version
+description: Enforce a package version for a dependency or dev-dependency.
+
+runs:
+  using: "node12"
+  main: "dist/index.js"
+
+inputs:
+  package:
+    description: "The name of the dependency to check."
+    required: true
+  directory:
+    description: "Directory where your `package.json` can be found.  Defaults to to `env.GITHUB_WORKSPACE`."
+    required: false
+  range:
+    description: "A semver range, eg. '^1.0.0', '1.0.0', '>=1.x', etc.."
+    required: true
+  version_prerelease:
+    description: >-
+      An optional prerelease target.  Defaults to false.
+       - `false` requires there is no prerelease.
+       - `true` includes prerelease in the range.
+       - `'prerelease'` means it must match that prerelease.
+       - `'prerelease.#'` means it must match that prerelease and identifier.
+    required: false
+  allow_multiple_versions:
+    description: >-
+      Whether or not we allow multiple versions to be resolved.  Defaults to false.
+       - `false` means this should only ever resolve to a single version (and that should match our range)
+       - `true` allows all versions…we only look at the first resolved version
+    required: false
+
+outputs:
+  resolved_version:
+    description: "The resolved version of that dependency, eg. in `yarn.lock`"
+  target_version:
+    description: "The target version of that dependency, eg. version in `package.json`"
