@@ -21,7 +21,7 @@ jobs:
 
       - name: "Enforce Version"
         id: enforce
-        uses: kylorhall/enforce-package-dependency-version@v1
+        uses: kylorhall/enforce-package-dependency-version@v1.0.2
         with:
           package: "typescript"
           range: ">=4.2.0"
@@ -68,6 +68,9 @@ yarn jest:tdd
 
 ## Release
 
-1. Bump a new `package.json` version (just for the sake of it).
-2. Do not `yarn publish`…
-3. Build a New Release: [here](https://github.com/kylorhall/enforce-package-dependency-version/releases/new)
+Manually build a New Release: [here](https://github.com/kylorhall/enforce-package-dependency-version/releases/new)
+1. Deicde on a semver like `v1.2.3`
+2. :warning: Point the release to the correct commit (not _main_).  `@latest` isn't used.
+3. Bump this version in `package.json` file—just for the sake of it.
+4. Bump this version in `.github/workflows/package-enforcement.yml` file.
+5. Bump this version in `README.md` file.
