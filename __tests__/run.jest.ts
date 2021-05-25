@@ -171,11 +171,7 @@ describe("run", () => {
     expect(setOutputSpy).not.toHaveBeenCalledWith("resolved_version", "1.1.0"); // what is in `yarn.lock`
   });
 
-  test.each([
-    "package",
-    "range",
-    "directory", // has a default, so not 100% required…
-  ])("required property %p", (key) => {
+  test.each(["package", "range"])("required property %p", (key) => {
     overrideInputs({
       [key]: undefined,
     });
