@@ -1,0 +1,13 @@
+{
+  "name": "fake-package",
+  "dependencies": {
+    "@kylorhall/enforce-package-dependency-version": "^1.0.0-unreleased.2",
+    "@actions/core": "^1.0.0",
+    "semver": "^7.0.0",
+    "yallist": "^1.0.0"
+  },
+  "devDependencies": {
+    "semver": "^7.0.0",
+    "typescript": "^4.0.0"
+  }
+}
