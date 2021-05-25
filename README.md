@@ -21,7 +21,7 @@ jobs:
 
       - name: "Enforce Version"
         id: enforce
-        uses: kylorhall/enforce-package-dependency-version@v1.0.2
+        uses: kylorhall/enforce-package-dependency-version@v1.1.0
         with:
           package: "typescript"
           range: ">=4.2.0"
