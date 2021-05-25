@@ -11,7 +11,7 @@ jobs:
 
       - name: "Enforce Version"
         id: enforce
-        uses: kylorhall/enforce-package-dependency-version@mvp
+        uses: kylorhall/enforce-package-dependency-version@v1
         with:
           package: "@actions/core"
           range: "^1.2.0"
@@ -30,7 +30,7 @@ jobs:
 
       - name: "Enforce Version"
         id: enforce
-        uses: kylorhall/enforce-package-dependency-version@mvp
+        uses: kylorhall/enforce-package-dependency-version@v1
         with:
           package: "typescript"
           range: "^4.0.0"
@@ -49,7 +49,7 @@ jobs:
 
       - name: "Enforce Version"
         id: enforce
-        uses: kylorhall/enforce-package-dependency-version@mvp
+        uses: kylorhall/enforce-package-dependency-version@v1
         with:
           package: "@types/jest"
           range: ">=26"
