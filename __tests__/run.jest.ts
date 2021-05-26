@@ -9,7 +9,6 @@ export const baseInputs: Config = {
   range: "4.x",
 };
 
-let getInputSpy;
 let setFailedSpy;
 let setOutputSpy;
 
@@ -17,14 +16,14 @@ export const mockedGetInput = (name: string, inputs = baseInputs) =>
   inputs[name];
 export const overrideInputs = (inputs) => {
   jest.spyOn(core, "getInput").mockClear();
-  getInputSpy = jest.spyOn(core, "getInput").mockImplementation((inputName) => {
+  jest.spyOn(core, "getInput").mockImplementation((inputName) => {
     return mockedGetInput(inputName, { ...baseInputs, ...inputs });
   });
 };
 
 describe("run", () => {
   beforeEach(() => {
-    getInputSpy = jest
+    jest
       .spyOn(core, "getInput")
       .mockImplementation((name) => mockedGetInput(name));
 
