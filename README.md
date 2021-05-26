@@ -96,7 +96,7 @@ Manually build a New Release: [here](https://github.com/kylorhall/enforce-packag
 
 1. Enter your tag based on the semver.
     - Your tag should be prepended with a `v`, eg. `v1.2.3`.
-    - Do not use `@latest` tag,
+    - Do not use `@latest` tag.
 2. :warning: Point the release to the correct commit (not _main_)!  This should be the PR Merge commit.
 3. Enter a title naming the release (eg. `v1.2.3: Brief description of changes`)
 4. Enter a fuller description—link to commits, PRs, etc.
