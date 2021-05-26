@@ -15,7 +15,7 @@ const baseConfig = {
 
 let setOutputSpy;
 
-describe("config", () => {
+describe("version", () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
