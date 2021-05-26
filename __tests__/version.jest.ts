@@ -7,7 +7,6 @@ import {
   getResolvedVersion,
   setResolvedVersion,
 } from "../src/version";
-import type { Config } from "../src/config";
 
 const baseConfig = {
   directory: path.resolve(__dirname, "./workspace"),

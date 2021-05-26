@@ -1,5 +1,4 @@
 import { getInput } from "@actions/core";
-import { BOOLEAN_UNARY_OPERATORS } from "@babel/types";
 
 export interface Config {
   package: string;

@@ -1,11 +1,6 @@
-import { setOutput, setFailed } from "@actions/core";
+import { setFailed } from "@actions/core";
 
-import {
-  getTargetVersion,
-  setTargetVersion,
-  getResolvedVersion,
-  setResolvedVersion,
-} from "./version";
+import { setTargetVersion, setResolvedVersion } from "./version";
 import { enforceVersion } from "./enforce";
 
 function run(): void {
