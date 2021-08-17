@@ -117,7 +117,7 @@ describe("enforce", () => {
       version_prerelease: true,
     };
 
-    test.each(["1.x", ">=1", config.range, "<100.0.0"])(
+    test.each(["1.x", ">=1.0", ">=1", config.range, "<100.0.0"])(
       "passing: with range=%p",
       (range) => {
         expect(() => enforceVersion({ ...config, range })).not.toThrow();
