@@ -117,7 +117,7 @@ describe("enforce", () => {
       version_prerelease: true,
     };
 
-    test.each([">=1", config.range, "<100.0.0"])(
+    test.each(["1.x", ">=1", config.range, "<100.0.0"])(
       "passing: with range=%p",
       (range) => {
         expect(() => enforceVersion({ ...config, range })).not.toThrow();
@@ -133,14 +133,17 @@ describe("enforce", () => {
       }
     );
 
-    test.each(["1.2.3", "^99.00.00", "2.x"])(
-      "failing: when the range=%p is bad",
-      (range) => {
-        expect(() => enforceVersion({ ...config, range })).toThrowError(
-          `⚠️ Resolved version '1.0.0-unreleased.2' did not satisfy range '${range}'.`
-        );
-      }
-    );
+    test.each([
+      "^1.0.0", // due to the way prereleases work, "1.0.0-prerelease" isn't in range.
+      ">=1.0.0", // due to the way prereleases work, "1.0.0-prerelease" isn't in range.
+      "1.2.3", // not this version
+      "^99.00.00", // out of range
+      "2.x", // out of range
+    ])("failing: when the range=%p is bad", (range) => {
+      expect(() => enforceVersion({ ...config, range })).toThrowError(
+        `⚠️ Resolved version '1.0.0-unreleased.2' did not satisfy range '${range}'.`
+      );
+    });
 
     test("failing: when prerelease=false (not included in semver)", () => {
       expect(() =>
