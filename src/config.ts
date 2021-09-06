@@ -35,6 +35,7 @@ const assertType = (
   }
 };
 
+// NOTE: We're not using `getBooleanInput` from `actions/core` as ours isn't always a boolean…
 const getForcedBooleanInput = (key: string): boolean | undefined | null => {
   const value = getInput(key);
   if (value === undefined) return;
@@ -57,9 +58,9 @@ const getBooleanStringInput = (key: string): boolean | string | undefined => {
 
 export const getConfig = (): Config => {
   const config: Config = {
-    package: getInput("package"),
+    package: getInput("package", { required: true }),
     directory: getInput("directory") || process.env.GITHUB_WORKSPACE,
-    range: getInput("range"),
+    range: getInput("range", { required: true }),
     version_prerelease: getBooleanStringInput("version_prerelease") || false,
     allow_multiple_versions:
       getForcedBooleanInput("allow_multiple_versions") || false,
