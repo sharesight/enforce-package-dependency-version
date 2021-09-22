@@ -1,5 +1,8 @@
 name: Enforce Package Dependency Version
 description: Enforce a package version for a dependency or dev-dependency.
+branding:
+  icon: lock
+  color: yellow
 
 runs:
   using: "node12"
