@@ -16,4 +16,5 @@ jobs:
 
       - run: yarn install --ignore-optional --frozen-lockfile --non-interactive --check-files
 
+      - run: yarn build
       - run: yarn jest:ci

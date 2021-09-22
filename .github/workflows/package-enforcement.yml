@@ -2,9 +2,30 @@ name: Package Enforcement of our own package.
 
 on: push
 
+####
+# We run `yarn build` before running these in hopes that `uses: ./` runs based on this build
+#
+# I don't actually know if this works…
+####
+
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: yarn
+
+      - run: yarn install
+      - run: yarn build
+
   actions_core:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -24,6 +45,7 @@ jobs:
 
   typescript:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -43,6 +65,7 @@ jobs:
 
   types_jest:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
