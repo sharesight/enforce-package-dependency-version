@@ -84,11 +84,10 @@ yarn jest:tdd
 #### Prepare Build
 
 1. Deicde on a semver, eg. `1.2.3`.
-2. Bump this version in `package.json` file—just for the sake of it.
-3. Bump this version in `.github/workflows/package-enforcement.yml` file.
-4. Bump this version in `README.md` file.
-5. Run `yarn build` and commit that `dist/index.js` change.
-6. Version bumps should go via a PR and be merged into _master_ before releasing.
+2. Bump this version in `package.json` file.
+3. Bump this version in `README.md` example.
+4. Run `yarn build` and commit that `dist/index.js` change.
+5. Version bumps should go via a PR and be merged into _master_ before releasing.
 
 #### Create the Release
 
