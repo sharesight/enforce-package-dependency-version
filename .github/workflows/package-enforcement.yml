@@ -14,7 +14,7 @@ jobs:
         uses: kylorhall/enforce-package-dependency-version@v1.1.1
         with:
           package: "@actions/core"
-          range: "^1.2.0"
+          range: "^1.5.0"
 
       - name: Debug
         if: always()
@@ -33,7 +33,7 @@ jobs:
         uses: kylorhall/enforce-package-dependency-version@v1.1.1
         with:
           package: "typescript"
-          range: "^4.0.0"
+          range: "^4.4.0"
 
       - name: Debug
         if: always()

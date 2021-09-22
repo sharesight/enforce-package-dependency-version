@@ -11,7 +11,8 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16
+          cache: yarn
 
       - run: yarn install --ignore-optional --frozen-lockfile --non-interactive --check-files
 
