@@ -109,10 +109,10 @@ describe("enforce", () => {
     );
   });
 
-  describe("@kylorhall/enforce-package-dependency-version (prerelease)", () => {
+  describe("@sharesight/enforce-package-dependency-version (prerelease)", () => {
     const config = {
       ...baseConfig,
-      package: "@kylorhall/enforce-package-dependency-version",
+      package: "@sharesight/enforce-package-dependency-version",
       range: "1.x",
       version_prerelease: true,
     };

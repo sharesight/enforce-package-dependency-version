@@ -61,7 +61,7 @@ describe("run", () => {
     `passing scenario: a prerelease with 'version_prerelease=%p'`,
     (prerelease) => {
       runTest({
-        package: "@kylorhall/enforce-package-dependency-version",
+        package: "@sharesight/enforce-package-dependency-version",
         range: "^1.0.0-unreleased", // the value we're testing for…may not 100% match `package.json` or `yarn.lock`
         version_prerelease: String(prerelease),
       });
@@ -82,7 +82,7 @@ describe("run", () => {
 
   test("failing scenario: a prerelease with 'version_prerelease=false'", () => {
     runTest({
-      package: "@kylorhall/enforce-package-dependency-version",
+      package: "@sharesight/enforce-package-dependency-version",
       range: "^1.0.0-unreleased", // the value we're testing for…may not 100% match `package.json` or `yarn.lock`
     });
 

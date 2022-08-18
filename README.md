@@ -6,7 +6,7 @@ This Github Actions helps enforce that a specific package version, range, prerel
 
 ## Example Workflow
 
-This action runs itself [here](https://github.com/kylorhall/enforce-package-dependency-version/blob/main/.github/workflows/package-enforcement.yml).
+This action runs itself [here](https://github.com/sharesight/enforce-package-dependency-version/blob/main/.github/workflows/package-enforcement.yml).
 
 ```yaml
 name: Enforce Package
@@ -21,7 +21,7 @@ jobs:
 
       - name: "Enforce Version"
         id: enforce
-        uses: kylorhall/enforce-package-dependency-version@v1.1.3
+        uses: sharesight/enforce-package-dependency-version@v1.1.3
         with:
           package: "typescript"
           range: ">=4.2.0"
@@ -37,7 +37,7 @@ jobs:
 
 | Name                    | Description                                                                     | Example                     | Default Value          |
 | ----------------------- | ------------------------------------------------------------------------------- | --------------------------- | ---------------------- |
-| package                 | The name of the dependency to check.                                            | `'@kylorhall/package '`     | **[required]**         |
+| package                 | The name of the dependency to check.                                            | `'@sharesight/package '`     | **[required]**         |
 | directory               | Directory where your `package.json` can be found.                               | `'../packages/static-site'` | `env.GITHUB_WORKSPACE` |
 | range                   | A semver range                                                                  | `'^1.2.3'`                  | **[required]**         |
 | version_prerelease      | An optional prerelease target ([read more](#version_prerelease))                | `'alpha'`, `true`, `false`  | `false`                |
@@ -91,7 +91,7 @@ yarn jest:tdd
 
 #### Create the Release
 
-Manually build a New Release: [here](https://github.com/kylorhall/enforce-package-dependency-version/releases/new)
+Manually build a New Release: [here](https://github.com/sharesight/enforce-package-dependency-version/releases/new)
 
 1. Enter your tag based on the semver.
    - Your tag should be prepended with a `v`, eg. `v1.2.3`.
