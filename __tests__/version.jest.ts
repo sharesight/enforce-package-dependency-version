@@ -45,7 +45,7 @@ describe("version", () => {
     test.each([
       // package, expectedVersion
       ["typescript", "4.2.4"],
-      ["@kylorhall/enforce-package-dependency-version", "1.0.0-unreleased.2"],
+      ["@sharesight/enforce-package-dependency-version", "1.0.0-unreleased.2"],
     ])("returns/sets the resolved version", (pkg, expectedVersion) => {
       const config = { ...baseConfig, range: "*", package: pkg };
 
@@ -128,7 +128,7 @@ describe("version", () => {
     test.each([
       // package, expectedVersion
       ["typescript", "^4.0.0"],
-      ["@kylorhall/enforce-package-dependency-version", "^1.0.0-unreleased.2"],
+      ["@sharesight/enforce-package-dependency-version", "^1.0.0-unreleased.2"],
     ])("returns/sets the target version", (pkg, expectedVersion) => {
       const config = { ...baseConfig, range: "*", package: pkg };
 
