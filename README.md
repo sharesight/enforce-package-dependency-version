@@ -21,7 +21,7 @@ jobs:
 
       - name: "Enforce Version"
         id: enforce
-        uses: sharesight/enforce-package-dependency-version@v1.1.3
+        uses: sharesight/enforce-package-dependency-version@v2
         with:
           package: "typescript"
           range: ">=4.2.0"
